@@ -6,3 +6,8 @@ var input = document.getElementById('todo-input');
 
 //Call var list to interact with html id todo-list
 var list = document.getElementById('todo-list');
+
+//Event listener for page load
+window.addEventListener('load', function() {
+  console.log();
+});
