@@ -10,4 +10,9 @@ var list = document.getElementById('todo-list');
 //Event listener for page load
 window.addEventListener('load', function() {
   console.log();
+  //Loop iterates over items held in localStorage to retreive items and display them in the #todo-list
+  for (var i = 0; i < localStorage.length; i++) {
+   addTaskToList(localStorage.key(i));
+ }
 });
+
