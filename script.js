@@ -1,18 +1,49 @@
-//Call var form to interact with html id todo-form
+// Create the variable 'form' to call 'todo-form' element id from index.html
 var form = document.getElementById('todo-form');
 
-//Call var input to interact with html id todo-input
+// Create the variable 'input' to call 'todo-input' element id from index.html
 var input = document.getElementById('todo-input');
 
-//Call var list to interact with html id todo-list
+// Create the variable 'list' to call 'todo-list' element id from index.html
 var list = document.getElementById('todo-list');
 
-//Event listener for page load
+// Create an event listener for the page 'load' event
 window.addEventListener('load', function() {
-  console.log();
-  //Loop iterates over items held in localStorage to retreive items and display them in the #todo-list
+// Create console log ('Welcome!')
+    console.log('Welcome!');
+  
+// If there are tasks in localStorage, we want to search localStorage and display those items in the 'todo-list'
+
+/* Create a for loop that searches through items held in 
+the localStorage directory in order to call those items
+and display them in the 'todo-list' */
+
+//The for loop will repeat until the specified condition evaluates false.
+// As long as the condition is true, the statement will execute.
+/* for (initialization; condition; afterthought)
+    statement */
+//
+  
   for (var i = 0; i < localStorage.length; i++) {
-   addTaskToList(localStorage.key(i));
- }
+  //Variable 'i' = 0,
+  //If 'i' is less than the length of localStorage,
+    //addTaskToList
+    addTaskToList(localStorage.key(i));
+  //'i' iterates until the end of localStorage.length  
+    }
+});
+//Add event listener to the form element which listens for the 'submit' event
+form.addEventListener('submit', function(event) {
+    //Prevent default reload action after submit event
+    event.preventDefault();
+
+//Store the value from the 'input' element into the 'task' variable
+ var task = input.value;
+ //Reset the content of the 'input' element to a blank string
+ input.value = '';
+
+//Add the 'task' variable to the 'task-list'
+ addTaskToList(task);
+ localStorage.setItem(task, task);
 });
 
