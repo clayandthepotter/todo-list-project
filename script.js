@@ -14,9 +14,9 @@ window.addEventListener('load', function() {
   
 // If there are tasks in localStorage, we want to search localStorage and display those items in the 'todo-list'
 
-/* Create a for loop that searches through items held in 
-the localStorage directory in order to call those items
-and display them in the 'todo-list' */
+/* We will create a for loop that searches for the items held in 
+the localStorage directory and will call those items
+and display them in the 'todo-list' */ 
 
 //The for loop will repeat until the specified condition evaluates false.
 // As long as the condition is true, the statement will execute.
