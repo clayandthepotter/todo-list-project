@@ -1,22 +1,33 @@
 // We will create the variable 'form' to call the 'todo-form' element id from index.html
 var form = document.getElementById('todo-form');
-
 // We will create the variable 'input' to call the 'todo-input' element id from index.html
 var input = document.getElementById('todo-input');
-
 // We will create the variable 'list' to call the 'todo-list' element id from index.html
 var list = document.getElementById('todo-list');
-
+// We will define a function called addTaskToList() so we can add our user generated inputs to the 'todo-list'
+function addTaskToList(task) {
+    // With document.createElement('li'), we will create a new list item and store it in the variable named listItem 
+    var listItem = document.createElement('li');
+    /* To display the user-generated textContent in the listItem,
+    we will set the listItem.textContent to our task parameter*/
+    listItem.textContent = task;
+    // To make list interactive, we will add a 'click' event listener to the listItem
+    listItem.addEventListener('click', function() {
+        // We want to remove listItem from list and from localStorage when they are clicked
+        listItem.remove();
+        localStorage.removeItem(task);
+    });
+    /* To make the new listItem appear in list, we will use the appendChild() method
+    and define the listItem as the child element*/
+    list.appendChild(listItem);
+}
 // We will create an event listener for the page 'load' event
 window.addEventListener('load', function() {
     console.log();
-  
 // As a function of this event listener, we will search localStorage and display those items in the 'todo-list'
-
 /* In order to do that, we will nest a for loop inside the listener.
 In order for us re-call those list items, this loop will search for the items held in the localStorage directory,
 and we will use a for loop to iterate through the list items and then re-call them to the 'todo-list' using a function.
-
 for loops repeat until the specified condition evaluates false.
  the for loop syntax *
     for (initialization; condition; afterthought){
@@ -25,15 +36,13 @@ for loops repeat until the specified condition evaluates false.
 For our initialization, we will declare the item variable, 'i' = 0
 For our condition and statement, as long as 'i' is less than the length of our localStorage,
     our statement function will add 'i' to our 'todo-list' 
-Our afterthought iterates through the entire list up to and inclusive of the last item in localStorage */
-  
+Our afterthought iterates through the entire list up to and inclusive of the last item in localStorage */  
   for (var i = 0; i < localStorage.length; i++) {
     // Our statement funtion will add each item from localStorage to our 'todo-list' 
     addTaskToList(localStorage.key(i));
     // We will define this function later
     }
 });
-
 //We will add an event listener to the form element to listen for the 'submit' event
 form.addEventListener('submit', function(event) {
     // We will use the preventDefault method to cancel the default reload action after the 'submit' event occurs
