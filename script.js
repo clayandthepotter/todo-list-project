@@ -9,29 +9,30 @@ var list = document.getElementById('todo-list');
 
 // Create an event listener for the page 'load' event
 window.addEventListener('load', function() {
-// Create console log ('Welcome!')
-    console.log('Welcome!');
+    console.log();
   
-// If there are tasks in localStorage, we want to search localStorage and display those items in the 'todo-list'
+// As a function of this event listener, we will search localStorage and display those items in the 'todo-list'
 
-/* We will create a for loop that searches for the items held in 
-the localStorage directory and will call those items
-and display them in the 'todo-list' */ 
+/* In order to do that, we will nest a for loop inside the listener.
+This loop will search for the items held in the localStorage directory in order for us re-call those list items.
+We will use a for loop to iterate through the list items and then re-call them to the 'todo-list' using a function.
 
-//The for loop will repeat until the specified condition evaluates false.
-// As long as the condition is true, the statement will execute.
-/* for (initialization; condition; afterthought)
-    statement */
-//
+for loops repeat until the specified condition evaluates false.
+ for loop syntax *
+    for (initialization; condition; afterthought){
+        statement
+    }
+For our initialization, we will declare the item variable, 'i' = 0
+For our condition and statement, as long as 'i' is less than the length of our localStorage,
+    our statement function will add 'i' to our 'todo-list' 
+Our afterthought iterates through the entire list up to adn inclusive of the last item in localStorage */
+// As long as the condition is true, the statement will continue to execute.
   
   for (var i = 0; i < localStorage.length; i++) {
-  //Variable 'i' = 0,
-  //If 'i' is less than the length of localStorage,
-    //addTaskToList
     addTaskToList(localStorage.key(i));
-  //'i' iterates until the end of localStorage.length  
     }
 });
+
 //Add event listener to the form element which listens for the 'submit' event
 form.addEventListener('submit', function(event) {
     //Prevent default reload action after submit event
