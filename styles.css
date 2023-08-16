@@ -22,8 +22,8 @@ h1 {
     padding: 2.5%;
 }
 #task-list {
-    float: right;
-    width: 45%;
+    float: center;
+    width: 10%;
     padding: 2.5%;
 }
 #todo-form {

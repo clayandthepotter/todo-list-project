@@ -7,9 +7,9 @@ var list = document.getElementById('todo-list');
 // We will define a function called addTaskToList() so we can add our user generated inputs to the 'todo-list'
 function addTaskToList(task) {
     // With document.createElement('li'), we will create a new list item and store it in the variable named listItem 
-    var listItem = document.createElement('li');
+    var listItem = document.createElement('li');    
     /* To display the user-generated textContent in the listItem,
-    we will set the listItem.textContent to our task parameter*/
+    we will set the listItem.textContent to our task parameter */
     listItem.textContent = task;
     // To make list interactive, we will add a 'click' event listener to the listItem
     listItem.addEventListener('click', function() {
